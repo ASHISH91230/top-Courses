@@ -1,0 +1,31 @@
+.Spinner {
+    width: 40px;
+    height: 10px;
+    color: #766DF4;
+    background:
+      radial-gradient(farthest-side,currentColor 90%,#0000) left  /10px 10px,
+      radial-gradient(farthest-side,currentColor 90%,#0000) center/10px 10px,
+      radial-gradient(farthest-side,currentColor 90%,#0000) right /10px 10px,
+      linear-gradient(currentColor 0 0) center/100% 4px; 
+    background-repeat: no-repeat;
+    position: relative;
+    animation: s6 2s infinite linear;
+  }
+  .Spinner:before,
+  .Spinner:after {
+    content: "";
+    position: absolute;
+    inset:0;
+    background:inherit;
+    animation:inherit;
+    --s:calc(50% - 5px);
+    animation-direction: reverse;
+  }
+  .Spinner:after {
+    --s:calc(5px - 50%);
+  }
+  
+  @keyframes s6 {
+    0%   {transform: translate(var(--s,0)) rotate(0)}
+    100% {transform: translate(var(--s,0)) rotate(1turn)}
+  }
